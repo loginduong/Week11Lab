@@ -1,6 +1,8 @@
 package services;
 
 import dataaccess.UserDB;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.User;
 
 public class AccountService {
@@ -11,6 +13,7 @@ public class AccountService {
         try {
             User user = userDB.get(email);
             if (password.equals(user.getPassword())) {
+                Logger.getLogger(AccountService.class.getName()).log(Level.INFO, "Successful login by {0}", email);
                 return user;
             }
         } catch (Exception e) {
