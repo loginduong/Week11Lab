@@ -26,7 +26,7 @@ public class AccountService {
                 tags.put("lastname", user.getLastName());
                 tags.put("date", (new java.util.Date()).toString());
                 
-                //GmailService.sendMail(to, subject, template, tags);
+                GmailService.sendMail(to, subject, template, tags);
                 return user;
             }
         } catch (Exception e) {
